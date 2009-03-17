@@ -9,6 +9,7 @@ module Rack
 
   autoload :BounceFavicon,              "rack/contrib/bounce_favicon"
   autoload :CSSHTTPRequest,             "rack/contrib/csshttprequest"
+  autoload :CSSVariables,               "rack/contrib/cssvariables"
   autoload :Deflect,                    "rack/contrib/deflect"
   autoload :ETag,                       "rack/contrib/etag"
   autoload :GarbageCollector,           "rack/contrib/garbagecollector"
