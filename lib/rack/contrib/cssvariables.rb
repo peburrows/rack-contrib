@@ -20,8 +20,10 @@ class CSSVariables
   end
   
   def call(env)
-    path = env['REQUEST_PATH']
-    unless path =~ /\.css$/ && path =~ /^#{@options[:stylesheets_path] || @options[:stylesheet_path]}/
+    path = env['PATH_INFO'] || env['REQUEST_PATH']
+    rexp = /^#{Regexp.escape(@options[:stylesheets_path] || @options[:stylesheet_path])}/
+    
+    unless (path =~ /\.css$/) && (path =~ rexp)
       # this isn't a stylesheet that is in the directory we care about (so, it'll probably raise a 404, but whatever)
       return @app.call(env)
     end
