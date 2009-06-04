@@ -1,6 +1,7 @@
 require 'erb'
 require 'fileutils'
 
+module Rack
 class CSSVariables
   File = ::File
   
@@ -62,8 +63,8 @@ class CSSVariables
     end
   end
   
-end
-
+end # CSSVariables
+end # Rack
 
 # give ERB the ability to respond to ERB.render(content), because, to standardize things,
 # that's how the CssVariables middleware will call the parser
